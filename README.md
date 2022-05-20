@@ -1,14 +1,14 @@
-# MercadoPago SDK
+# Yapay SDK
 
 
-[![Crate version on crates.io](https://img.shields.io/crates/v/mercadopago-sdk-rust)](https://crates.io/crates/mercadopago-sdk-rust)
-[![Crate documentation on docs.rs](https://img.shields.io/docsrs/mercadopago-sdk-rust)](https://docs.rs/mercadopago-sdk-rust)
-![Crate license](https://img.shields.io/crates/l/mercadopago-sdk-rust)
+[![Crate version on crates.io](https://img.shields.io/crates/v/yapay-sdk-rust)](https://crates.io/crates/yapay-sdk-rust)
+[![Crate documentation on docs.rs](https://img.shields.io/docsrs/yapay-sdk-rust)](https://docs.rs/yapay-sdk-rust)
+![Crate license](https://img.shields.io/crates/l/yapay-sdk-rust)
 
 
 <!-- cargo-rdme start -->
 
-An open source, strongly-typed SDK for the MercadoPago API.
+An open source, strongly-typed SDK for the Yapay API.
 
 It will try to hold your hand and reduce the possibility of errors, providing the correct API
 surface.
@@ -22,36 +22,36 @@ The library is still under development and its public API is subject to change.
 Added the following into your Cargo.toml:
 
 ```toml
-mercadopago_sdk_rust = "0.1"
+yapay_sdk_rust = "0.1"
 ```
 
 # Usage
 
 The client is built using the
-[`MercadoPagoSDKBuilder::with_token`](https://docs.rs/mercadopago-sdk-rust/latest/mercadopago_sdk_rust/struct.MercadoPagoSDKBuilder.html) `with_token`
+[`YapaySDKBuilder::with_token`](https://docs.rs/yapay-sdk-rust/latest/yapay_sdk_rust/struct.YapaySDKBuilder.html) `with_token`
 method.
 
 ```rust
-use mercadopago_sdk_rust::{MercadoPagoSDK, MercadoPagoSDKBuilder};
+use yapay_sdk_rust::{YapaySDK, YapaySDKBuilder};
 
-let mp_sdk: MercadoPagoSDK = MercadoPagoSDKBuilder::with_token("MP_ACCESS_TOKEN");
+let mp_sdk: YapaySDK = YapaySDKBuilder::with_token("MP_ACCESS_TOKEN");
 
 ```
 
-Once the token is inserted, you can call methods on [`crate::MercadoPagoSDK`]
+Once the token is inserted, you can call methods on [`crate::YapaySDK`]
 
 
 
 # Creating a CheckoutPro Preference
 ```rust
-use mercadopago_sdk_rust::common_types::{CheckoutProPayer, Item};
-use mercadopago_sdk_rust::payments::requests::DocumentType;
-use mercadopago_sdk_rust::preferences::requests::CheckoutProPreferences;
-use mercadopago_sdk_rust::MercadoPagoSDKBuilder;
+use yapay_sdk_rust::common_types::{CheckoutProPayer, Item};
+use yapay_sdk_rust::payments::requests::DocumentType;
+use yapay_sdk_rust::preferences::requests::CheckoutProPreferences;
+use yapay_sdk_rust::YapaySDKBuilder;
 
 #[tokio::main]
 async fn async_main() {
-    let mp_sdk = MercadoPagoSDKBuilder::with_token("MP_ACCESS_TOKEN");
+    let mp_sdk = YapaySDKBuilder::with_token("MP_ACCESS_TOKEN");
 
     let sample_item =
         Item::minimal_item("Sample item".to_string(), "".to_string(), 15.00, 1).unwrap();
