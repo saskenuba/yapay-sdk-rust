@@ -1,0 +1,34 @@
+{
+  "message_response": {
+    "message": "success"
+  },
+  "data_response": {
+    "transaction": {
+      "order_number": "79690",
+      "free": "Campo Livre",
+      "transaction_id": 79690,
+      "status_name": "Aprovada",
+      "status_id": 6,
+      "token_transaction": "cb22c716c80ddbaa16f8b8dbc49302a2",
+      "payment": {
+        "price_payment": "147.69",
+        "price_original": "142.0",
+        "payment_response": "Autorização aprovada",
+        "payment_response_code": "00",
+        "url_payment": "",
+        "tid": "10347871500026BF1001",
+        "split": 3,
+        "payment_method_id": 3,
+        "payment_method_name": "Visa",
+        "linha_digitavel": null,
+        "card_token": "a66cf237-3541-45d1-ab9c-a6b6e3f795f5"
+      },
+      "customer": {
+        "name": "Stephen Strange",
+        "company_name": "",
+        "trade_name": "",
+        "cnpj": ""
+      }
+    }
+  }
+}

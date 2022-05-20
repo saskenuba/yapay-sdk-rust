@@ -1,0 +1,1001 @@
+{
+  "message_response": {
+    "message": "success"
+  },
+  "data_response": {
+    "payment_methods": [
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 2,
+            "value_split": "500.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "25.42",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 3,
+            "value_split": "333.33",
+            "value_transaction": "1000.00",
+            "addition_retention": "33.99",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 4,
+            "value_split": "260.65",
+            "value_transaction": "1042.60",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 5,
+            "value_split": "210.25",
+            "value_transaction": "1051.27",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 6,
+            "value_split": "176.66",
+            "value_transaction": "1059.98",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 7,
+            "value_split": "152.68",
+            "value_transaction": "1068.73",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 8,
+            "value_split": "134.69",
+            "value_transaction": "1077.54",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 9,
+            "value_split": "120.71",
+            "value_transaction": "1086.39",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 10,
+            "value_split": "109.53",
+            "value_transaction": "1095.29",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 11,
+            "value_split": "100.38",
+            "value_transaction": "1104.23",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 12,
+            "value_split": "92.77",
+            "value_transaction": "1113.22",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "903.69",
+        "price_original": "1000.00",
+        "split": 12,
+        "payment_method_name": "Visa",
+        "payment_method_id": 3
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 2,
+            "value_split": "500.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "25.42",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 3,
+            "value_split": "333.33",
+            "value_transaction": "1000.00",
+            "addition_retention": "33.99",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 4,
+            "value_split": "260.65",
+            "value_transaction": "1042.60",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 5,
+            "value_split": "210.25",
+            "value_transaction": "1051.27",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 6,
+            "value_split": "176.66",
+            "value_transaction": "1059.98",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 7,
+            "value_split": "152.68",
+            "value_transaction": "1068.73",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 8,
+            "value_split": "134.69",
+            "value_transaction": "1077.54",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 9,
+            "value_split": "120.71",
+            "value_transaction": "1086.39",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 10,
+            "value_split": "109.53",
+            "value_transaction": "1095.29",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 11,
+            "value_split": "100.38",
+            "value_transaction": "1104.23",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 12,
+            "value_split": "92.77",
+            "value_transaction": "1113.22",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "903.69",
+        "price_original": "1000.00",
+        "split": 12,
+        "payment_method_name": "Mastercard",
+        "payment_method_id": 4
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 2,
+            "value_split": "500.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "25.42",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 3,
+            "value_split": "333.33",
+            "value_transaction": "1000.00",
+            "addition_retention": "33.99",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 4,
+            "value_split": "260.65",
+            "value_transaction": "1042.60",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 5,
+            "value_split": "210.25",
+            "value_transaction": "1051.27",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 6,
+            "value_split": "176.66",
+            "value_transaction": "1059.98",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 7,
+            "value_split": "152.68",
+            "value_transaction": "1068.73",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 8,
+            "value_split": "134.69",
+            "value_transaction": "1077.54",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 9,
+            "value_split": "120.71",
+            "value_transaction": "1086.39",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 10,
+            "value_split": "109.53",
+            "value_transaction": "1095.29",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 11,
+            "value_split": "100.38",
+            "value_transaction": "1104.23",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 12,
+            "value_split": "92.77",
+            "value_transaction": "1113.22",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "903.69",
+        "price_original": "1000.00",
+        "split": 12,
+        "payment_method_name": "Diners",
+        "payment_method_id": 2
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 2,
+            "value_split": "500.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "25.42",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 3,
+            "value_split": "333.33",
+            "value_transaction": "1000.00",
+            "addition_retention": "33.99",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 4,
+            "value_split": "260.65",
+            "value_transaction": "1042.60",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 5,
+            "value_split": "210.25",
+            "value_transaction": "1051.27",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 6,
+            "value_split": "176.66",
+            "value_transaction": "1059.98",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 7,
+            "value_split": "152.68",
+            "value_transaction": "1068.73",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 8,
+            "value_split": "134.69",
+            "value_transaction": "1077.54",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 9,
+            "value_split": "120.71",
+            "value_transaction": "1086.39",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 10,
+            "value_split": "109.53",
+            "value_transaction": "1095.29",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 11,
+            "value_split": "100.38",
+            "value_transaction": "1104.23",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 12,
+            "value_split": "92.77",
+            "value_transaction": "1113.22",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "903.69",
+        "price_original": "1000.00",
+        "split": 12,
+        "payment_method_name": "American Express",
+        "payment_method_id": 5
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 2,
+            "value_split": "500.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "25.42",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 3,
+            "value_split": "333.33",
+            "value_transaction": "1000.00",
+            "addition_retention": "33.99",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 4,
+            "value_split": "260.65",
+            "value_transaction": "1042.60",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 5,
+            "value_split": "210.25",
+            "value_transaction": "1051.27",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 6,
+            "value_split": "176.66",
+            "value_transaction": "1059.98",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 7,
+            "value_split": "152.68",
+            "value_transaction": "1068.73",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 8,
+            "value_split": "134.69",
+            "value_transaction": "1077.54",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 9,
+            "value_split": "120.71",
+            "value_transaction": "1086.39",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 10,
+            "value_split": "109.53",
+            "value_transaction": "1095.29",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 11,
+            "value_split": "100.38",
+            "value_transaction": "1104.23",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 12,
+            "value_split": "92.77",
+            "value_transaction": "1113.22",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "903.69",
+        "price_original": "1000.00",
+        "split": 12,
+        "payment_method_name": "Elo",
+        "payment_method_id": 16
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 2,
+            "value_split": "500.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "25.42",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 3,
+            "value_split": "333.33",
+            "value_transaction": "1000.00",
+            "addition_retention": "33.99",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 4,
+            "value_split": "260.65",
+            "value_transaction": "1042.60",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 5,
+            "value_split": "210.25",
+            "value_transaction": "1051.27",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 6,
+            "value_split": "176.66",
+            "value_transaction": "1059.98",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 7,
+            "value_split": "152.68",
+            "value_transaction": "1068.73",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 8,
+            "value_split": "134.69",
+            "value_transaction": "1077.54",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 9,
+            "value_split": "120.71",
+            "value_transaction": "1086.39",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 10,
+            "value_split": "109.53",
+            "value_transaction": "1095.29",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 11,
+            "value_split": "100.38",
+            "value_transaction": "1104.23",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 12,
+            "value_split": "92.77",
+            "value_transaction": "1113.22",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "903.69",
+        "price_original": "1000.00",
+        "split": 12,
+        "payment_method_name": "Aura",
+        "payment_method_id": 18
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "963.10",
+        "price_original": "1000.00",
+        "split": 1,
+        "payment_method_name": "Discover",
+        "payment_method_id": 15
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "963.10",
+        "price_original": "1000.00",
+        "split": 1,
+        "payment_method_name": "JCB",
+        "payment_method_id": 19
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 2,
+            "value_split": "500.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "25.42",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 3,
+            "value_split": "333.33",
+            "value_transaction": "1000.00",
+            "addition_retention": "33.99",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 4,
+            "value_split": "260.65",
+            "value_transaction": "1042.60",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 5,
+            "value_split": "210.25",
+            "value_transaction": "1051.27",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 6,
+            "value_split": "176.66",
+            "value_transaction": "1059.98",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 7,
+            "value_split": "152.68",
+            "value_transaction": "1068.73",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 8,
+            "value_split": "134.69",
+            "value_transaction": "1077.54",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 9,
+            "value_split": "120.71",
+            "value_transaction": "1086.39",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 10,
+            "value_split": "109.53",
+            "value_transaction": "1095.29",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 11,
+            "value_split": "100.38",
+            "value_transaction": "1104.23",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 12,
+            "value_split": "92.77",
+            "value_transaction": "1113.22",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "903.69",
+        "price_original": "1000.00",
+        "split": 12,
+        "payment_method_name": "Hiper",
+        "payment_method_id": 25
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 2,
+            "value_split": "500.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "25.42",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 3,
+            "value_split": "333.33",
+            "value_transaction": "1000.00",
+            "addition_retention": "33.99",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          },
+          {
+            "split": 4,
+            "value_split": "260.65",
+            "value_transaction": "1042.60",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 5,
+            "value_split": "210.25",
+            "value_transaction": "1051.27",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 6,
+            "value_split": "176.66",
+            "value_transaction": "1059.98",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 7,
+            "value_split": "152.68",
+            "value_transaction": "1068.73",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 8,
+            "value_split": "134.69",
+            "value_transaction": "1077.54",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 9,
+            "value_split": "120.71",
+            "value_transaction": "1086.39",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 10,
+            "value_split": "109.53",
+            "value_transaction": "1095.29",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 11,
+            "value_split": "100.38",
+            "value_transaction": "1104.23",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          },
+          {
+            "split": 12,
+            "value_split": "92.77",
+            "value_transaction": "1113.22",
+            "addition_retention": "0.00",
+            "split_rate": "1.69",
+            "price_seller": "963.1"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "903.69",
+        "price_original": "1000.00",
+        "split": 12,
+        "payment_method_name": "Hipercard",
+        "payment_method_id": 20
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "963.1"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "963.10",
+        "price_original": "1000.00",
+        "split": 1,
+        "payment_method_name": "Elo - Corona Voucher",
+        "payment_method_id": 26
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "1000.0"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "1000.00",
+        "price_original": "1000.00",
+        "split": 1,
+        "payment_method_name": "Pagamento com Saldo",
+        "payment_method_id": 8
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "998.0"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "998.00",
+        "price_original": "1000.00",
+        "split": 1,
+        "payment_method_name": "Boleto Bancario",
+        "payment_method_id": 6
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "998.0"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "998.00",
+        "price_original": "1000.00",
+        "split": 1,
+        "payment_method_name": "Transf. Online Itaú",
+        "payment_method_id": 7
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "998.0"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "998.00",
+        "price_original": "1000.00",
+        "split": 1,
+        "payment_method_name": "Transf. Online Banco do Brasil",
+        "payment_method_id": 23
+      },
+      {
+        "splittings": [
+          {
+            "split": 1,
+            "value_split": "1000.00",
+            "value_transaction": "1000.00",
+            "addition_retention": "0.00",
+            "split_rate": 0,
+            "price_seller": "990.5"
+          }
+        ],
+        "price_customer": "1000.00",
+        "price_seller": "990.50",
+        "price_original": "1000.00",
+        "split": 1,
+        "payment_method_name": "Pix",
+        "payment_method_id": 27
+      }
+    ]
+  }
+}
