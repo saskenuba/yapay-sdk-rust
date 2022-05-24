@@ -1,43 +1,43 @@
-use yapay_sdk_rust::common_types::{YapayCardData, YapayCustomer, YapayTransaction};
+use futures::TryFutureExt;
+use uuid::Uuid;
+use yapay_sdk_rust::checkout::CheckoutPreferences;
 use yapay_sdk_rust::YapayEnv;
 
 mod common;
 
-#[test]
-fn t_boleto_payment() {
-    let yapay_sdk = common::setup_sdk();
-
-    // let opts = YapayCardData::new();
-
-    let customer = YapayCustomer::new(
-        "Rufino Beltrano".to_string(),
-        "20430213320".to_string(),
-        "teste@teste.com.br".to_string(),
-        "11/01/2000".to_string(),
-        vec![],
-        vec![],
-    );
-
-    // let transaction = YapayTransaction {
-    //     available_payment_methods: "".to_string(),
-    //     order_number: None,
-    //     customer_ip: "".to_string(),
-    //     shipping_type: "".to_string(),
-    //     shipping_price: "".to_string(),
-    //     price_discount: "".to_string(),
-    //     url_notification: "".to_string(),
-    //     free: "".to_string()
-    // };
-    //
-    // let res = yapay_sdk
-    //     .create_credit_card_payment(customer, , vec![], Default::default())
-    //     .unwrap()
-    //     .execute()
-    //     .await;
-}
-
-#[test]
-fn t_creditcard_payment() {}
+// #[tokio::test]
+// async fn cc_payment() {
+//     let yapay_sdk = common::setup_sdk();
+//
+//     // let opts = YapayCardData::new();
+//
+//     let customer = common::valid_customer();
+//
+//     let card_data = YapayCardData::new(
+//         CreditCard::Visa,
+//         "Joaquim Silva".to_string(),
+//         "3456 8564 1548 7894".to_string(),
+//         "06".to_string(),
+//         "2022".to_string(),
+//         "411".to_string(),
+//         1,
+//     )
+//     .unwrap();
+//
+//     let wallet_credit = common::valid_product();
+//
+//     let transaction =
+//         YapayTransaction::online_goods("hehe".to_string(), "127.0.0.1".to_string(), None);
+//
+//     let res = yapay_sdk
+//         .create_credit_card_payment(customer, transaction, vec![wallet_credit], card_data)
+//         .unwrap()
+//         .execute(YapayEnv::SANDBOX)
+//         .await
+//         .unwrap();
+//
+//     eprintln!("res = {:#?}", res);
+// }
 
 #[tokio::test]
 async fn t_simulate_payment_conditions() -> anyhow::Result<()> {
@@ -45,9 +45,28 @@ async fn t_simulate_payment_conditions() -> anyhow::Result<()> {
 
     let res = yapay_sdk
         .simulate_payment(100_f64)
-        .execute(YapayEnv::PRODUCTION)
+        .execute(YapayEnv::SANDBOX)
         .await;
     assert!(res.map(|_| true).unwrap_or(false));
+
+    Ok(())
+}
+
+#[tokio::test]
+async fn t_checkout() -> anyhow::Result<()> {
+    let yapay_sdk = common::setup_sdk();
+    let sample_products = common::valid_products();
+
+    let checkout_preferences =
+        CheckoutPreferences::new(Uuid::new_v4().to_string(), sample_products)?;
+
+    let res: Result<_, _> = yapay_sdk
+        .create_checkout_page(YapayEnv::SANDBOX, checkout_preferences)
+        .inspect_ok(|redirect_url| eprintln!("redirect_url = {:#?}", redirect_url))
+        .await;
+
+    assert!(res.is_ok());
+    eprintln!("checkout_url = {}", res.unwrap());
 
     Ok(())
 }

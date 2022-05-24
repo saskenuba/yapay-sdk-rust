@@ -34,6 +34,9 @@ pub enum InvalidError {
     ItemError(String),
 
     #[error(transparent)]
+    URLError(#[from] reqwest::Error),
+
+    #[error(transparent)]
     ValidatorLibError(#[from] validator::ValidationErrors),
 }
 

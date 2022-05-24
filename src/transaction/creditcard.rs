@@ -18,7 +18,7 @@ pub struct PaymentCreditCardPayload {
 
 impl AccessToken for PaymentCreditCardPayload {
     fn set_token(&mut self, token: String) {
-        self.token_account = token.to_string();
+        self.token_account = token;
     }
 }
 
@@ -58,19 +58,15 @@ mod tests {
     fn t_credit_card_request() {
         let jd = serde_json::from_str::<PaymentRequestRoot<YapayCardData>>(include_str!(
             "../../tests/assets/creditcard_request.json"
-        ))
-        .unwrap();
-
-        // assert!(jd.is_ok());
+        ));
+        assert!(jd.is_ok());
     }
 
     #[test]
     fn t_credit_card_response() {
         let jd = serde_json::from_str::<CardTransactionResponse>(include_str!(
             "../../tests/assets/creditcard_response.json"
-        ))
-        .unwrap();
-
-        // assert!(jd.is_ok());
+        ));
+        assert!(jd.is_ok());
     }
 }
