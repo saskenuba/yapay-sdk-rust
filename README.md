@@ -34,7 +34,7 @@ method.
 ```rust
 use yapay_sdk_rust::{YapaySDK, YapaySDKBuilder};
 
-let mp_sdk: YapaySDK = YapaySDKBuilder::with_token("MP_ACCESS_TOKEN");
+let mp_sdk: YapaySDK = YapaySDKBuilder::with_token("YAPAY_ACCOUNT_TOKEN");
 
 ```
 
@@ -42,32 +42,36 @@ Once the token is inserted, you can call methods on [`crate::YapaySDK`]
 
 
 
-# Creating a CheckoutPro Preference
+# Creating a Checkout link
+
+You can easily retrieve a checkout link with the method below.
+
 ```rust
-use yapay_sdk_rust::common_types::{CheckoutProPayer, Item};
-use yapay_sdk_rust::payments::requests::DocumentType;
-use yapay_sdk_rust::preferences::requests::CheckoutProPreferences;
-use yapay_sdk_rust::YapaySDKBuilder;
+use std::num::NonZeroU8;
+
+use uuid::Uuid;
+use yapay_sdk_rust::checkout::CheckoutPreferences;
+use yapay_sdk_rust::common_types::YapayProduct;
+use yapay_sdk_rust::{YapayEnv, YapaySDKBuilder};
 
 #[tokio::main]
 async fn async_main() {
-    let mp_sdk = YapaySDKBuilder::with_token("MP_ACCESS_TOKEN");
+    let yapay_sdk = YapaySDKBuilder::with_token("YAPAY_ACCOUNT_TOKEN");
 
-    let sample_item =
-        Item::minimal_item("Sample item".to_string(), "".to_string(), 15.00, 1).unwrap();
+    let product = YapayProduct::new(
+        "note-100sk".to_string(),
+        "Notebook Cinza".to_string(),
+        NonZeroU8::new(1).unwrap(),
+        2453.50,
+    );
 
-    let preferences = CheckoutProPreferences::new()
-        .set_items(vec![sample_item])
-        .set_payer(CheckoutProPayer::minimal_payer(
-            "fulano@beltrano.com.br".to_string(),
-            DocumentType::CPF,
-            41810524485,
-        ));
+    let order_number = Uuid::new_v4().to_string();
+    let checkout_preferences =
+        CheckoutPreferences::new(order_number, vec![product]).set_notification_url();
 
-    mp_sdk
-        .create_preferences_checkout_pro(preferences)
-        .expect("Failed to validate checkout preference. Something is wrong.")
-        .execute()
+    let checkout_url = yapay_sdk
+        .create_checkout_page(YapayEnv::PRODUCTION, checkout_preferences)
+        .expect("Failed to checkout options. Something is wrong.")
         .await
         .unwrap();
 }
