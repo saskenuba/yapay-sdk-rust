@@ -13,6 +13,8 @@ use crate::{CanValidate, SDKError};
 
 lazy_static! {
     static ref REGEX_BIRTH_DATE: Regex = Regex::new(r"\d{2}/\d{2}/\d{4}$").unwrap();
+    pub static ref CLEAN_WEBHOOK_REGEX: Regex =
+        Regex::new(r"\&transaction\[products\]\[\].*?\&").unwrap();
 }
 
 #[derive(Validate, Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
