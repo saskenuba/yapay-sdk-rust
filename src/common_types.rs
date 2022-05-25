@@ -4,6 +4,7 @@ use std::num::NonZeroU8;
 use lazy_static::lazy_static;
 use regex::Regex;
 use serde::{Deserialize, Serialize};
+use strum::{EnumIter, IntoEnumIterator};
 use time::macros::format_description;
 use time::{Date, OffsetDateTime};
 use validator::Validate;
@@ -154,14 +155,15 @@ impl YapayTransaction {
     ///
     /// `notification_url` should be an URL in your server to receive IPN (Instant Payment
     /// Notification).
-    #[must_use]
     pub fn online_goods(
         order_number: String,
         customer_ip: String,
+        available_payment_methods: Option<String>,
         notification_url: Option<&str>,
-    ) -> Self {
-        Self {
-            available_payment_methods: "2,3,4,5,6,7,14,15,16,18,19,21,22,23".to_string(),
+    ) -> Result<Self, SDKError> {
+        let transaction = Self {
+            available_payment_methods: available_payment_methods
+                .unwrap_or("2,3,4,5,6,7,14,15,16,18,19,21,22,23".to_string()),
             order_number: Some(order_number),
             customer_ip,
             shipping_type: None,
@@ -169,7 +171,12 @@ impl YapayTransaction {
             price_discount: "".to_string(),
             url_notification: notification_url.unwrap_or("").to_string(),
             free: "".to_string(),
+        };
+
+        if let Err(err) = transaction.validate() {
+            return Err(InvalidError::ValidatorLibError(err).into());
         }
+        Ok(transaction)
     }
 
     /// A physical product include a shipping address.
@@ -236,7 +243,7 @@ impl YapayCardData {
         cc_exp_yyyy: String,
         cc_cvv: String,
         installments: i8,
-    ) -> Result<YapayCardData, SDKError> {
+    ) -> Result<Self, SDKError> {
         let payment = Self {
             finger_print: "".to_string(),
             payment_method_id: cc,
@@ -318,6 +325,7 @@ pub enum PhoneContactType {
 /// Tabela de Contact
 #[derive(Copy, Clone, Deserialize, Serialize, PartialEq, Debug)]
 pub enum PaymentType {
+    Card(CreditCard),
     BankTransfer(BankTransfer),
 }
 
@@ -329,20 +337,36 @@ pub enum BankTransfer {
     BancoDoBrasil,
 }
 
-#[derive(Copy, Clone, Deserialize, Serialize, PartialEq, Debug)]
+#[derive(strum::Display, EnumIter, Copy, Clone, Deserialize, Serialize, PartialEq, Debug)]
 pub enum CreditCard {
     #[serde(rename = "3")]
+    #[strum(serialize = "3")]
     Visa,
     #[serde(rename = "4")]
+    #[strum(serialize = "4")]
     MasterCard,
     #[serde(rename = "5")]
+    #[strum(serialize = "5")]
     Amex,
     #[serde(rename = "16")]
+    #[strum(serialize = "16")]
     Elo,
     #[serde(rename = "20")]
+    #[strum(serialize = "20")]
     HiperCard,
     #[serde(rename = "25")]
+    #[strum(serialize = "25")]
     HiperItau,
+}
+
+impl CreditCard {
+    pub fn to_payment_methods() -> String {
+        Self::iter()
+            .skip(1)
+            .fold(format!("{}", Self::Visa), |acc, x| {
+                acc + &*format!(",{}", x)
+            })
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -379,7 +403,7 @@ mod tests {
     use time::macros::format_description;
     use time::Date;
 
-    use crate::common_types::validate_card_expiration;
+    use crate::common_types::{validate_card_expiration, CreditCard};
 
     #[test]
     fn cc_valid_date() {
@@ -397,5 +421,11 @@ mod tests {
 
         let res = validate_card_expiration(datetime, "06", "2021");
         assert!(res.is_err());
+    }
+
+    #[test]
+    fn t_cc_methods() {
+        let res = CreditCard::to_payment_methods();
+        assert_eq!(res, "3,4,5,16,20,25".to_string());
     }
 }
