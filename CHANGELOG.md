@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.1.2 (2022-05-25)
+
+### New Features
+
+ - <csr-id-21e24a1437c0091e20dfc66c74b7c37572017191/> added webhook strucutre, to be used on extractors
+
+
+### Refactor
+
+ - <csr-id-d3b4a8a366abad541e423d1db910bdc0768833ed/> re-added tests to credit_card payment, clippy lints
+
+
+### Commit Statistics
+
+<csr-read-only-do-not-edit/>
+
+ - 2 commits contributed to the release.
+ - 2 commits where understood as [conventional](https://www.conventionalcommits.org).
+ - 0 issues like '(#ID)' where seen in commit messages
+
+### Commit Details
+
+<csr-read-only-do-not-edit/>
+
+<details><summary>view details</summary>
+
+ * **Uncategorized**
+    - re-added tests to credit_card payment, clippy lints ([`d3b4a8a`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/d3b4a8a366abad541e423d1db910bdc0768833ed))
+    - added webhook strucutre, to be used on extractors ([`21e24a1`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/21e24a1437c0091e20dfc66c74b7c37572017191))
+</details>
+
 ## v0.1.1 (2022-05-24)
 
 ### New Features
@@ -20,7 +51,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 1 commit contributed to the release.
+ - 2 commits contributed to the release.
  - 4 days passed between releases.
  - 1 commit where understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' where seen in commit messages
@@ -32,6 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <details><summary>view details</summary>
 
  * **Uncategorized**
+    - Release yapay-sdk-rust v0.1.1 ([`9133567`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/913356719f57f87c9343f712e79f1cad9a49d7f2))
     - added create checkout endpoint, refactor ([`2955828`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/2955828f5edd52b378ff6558d717e36d52300787))
 </details>
 
