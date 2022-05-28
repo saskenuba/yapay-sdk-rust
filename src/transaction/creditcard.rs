@@ -4,7 +4,6 @@ use crate::common_types::{
     CustomerResponse, TransactionTrace, YapayCardData, YapayCustomer, YapayProduct,
     YapayTransaction,
 };
-use crate::AccessToken;
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct PaymentCreditCardPayload {
@@ -14,12 +13,6 @@ pub struct PaymentCreditCardPayload {
     pub transaction: YapayTransaction,
     pub transaction_trace: TransactionTrace,
     pub payment: YapayCardData,
-}
-
-impl AccessToken for PaymentCreditCardPayload {
-    fn set_token(&mut self, token: String) {
-        self.token_account = token;
-    }
 }
 
 #[derive(Debug, Clone, PartialEq, Deserialize)]

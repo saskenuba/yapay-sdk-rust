@@ -113,13 +113,7 @@ const CHECKOUT_PROD_BASE: &str = "https://tc.intermediador.yapay.com.br/payment/
 const CHECKOUT_TEST_BASE: &str =
     "https://tc-intermediador-sandbox.yapay.com.br/payment/transaction";
 
-pub trait AccessToken: erased_serde::Serialize {
-    fn set_token(&mut self, token: String);
-}
-
 pub trait CanValidate: Serialize + Validate {}
-
-erased_serde::serialize_trait_object!(AccessToken);
 
 #[derive(Debug, Eq, PartialEq)]
 pub enum YapayEnv {
