@@ -20,6 +20,28 @@ lazy_static! {
         Regex::new(r"\&transaction\[products\]\[\].*?\&").unwrap();
 }
 
+/// Transaction Status
+#[derive(Copy, Clone, Deserialize, Serialize, PartialEq, Debug, strum::Display)]
+pub enum TransactionStatus {
+    #[serde(rename = "4")]
+    AguardandoPagamento,
+    #[serde(rename = "6")]
+    Aprovada,
+    #[serde(rename = "7")]
+    Cancelada,
+    #[serde(rename = "89")]
+    Reprovada,
+
+    /// The code 24 is for both Chargeback and Contestacao.
+    /// Come on Yapay!
+    #[serde(rename = "24")]
+    Contestacao,
+    #[serde(rename = "89")]
+    Monitoring,
+    // #[serde(rename = "W")]
+    // Chargeback,
+}
+
 #[derive(Validate, Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct YapayCustomer {
     #[validate]

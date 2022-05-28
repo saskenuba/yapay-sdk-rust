@@ -43,7 +43,7 @@
 //!
 //! use uuid::Uuid;
 //! use yapay_sdk_rust::checkout::CheckoutPreferences;
-//! use yapay_sdk_rust::common_types::YapayProduct;
+//! use yapay_sdk_rust::common_types::{AsPaymentMethod, PaymentCreditCard, YapayProduct};
 //! use yapay_sdk_rust::{YapayEnv, YapaySDKBuilder};
 //!
 //! #[tokio::main]
@@ -64,7 +64,7 @@
 //!         .expect("Validation failed.")
 //!         .set_notification_url("https://your-notifications-url.com")
 //!         .expect("Notifications URL failed to validate.")
-//!         .set_available_payment_methods(&);
+//!         .set_available_payment_methods(&PaymentCreditCard::payment_methods_all());
 //!
 //!     let checkout_url = yapay_sdk
 //!         .create_checkout_page(YapayEnv::PRODUCTION, checkout_preferences)

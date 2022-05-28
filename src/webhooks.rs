@@ -2,22 +2,22 @@
 
 use serde::{Deserialize, Serialize};
 
-use crate::common_types::CLEAN_WEBHOOK_REGEX;
+use crate::common_types::{TransactionStatus, CLEAN_WEBHOOK_REGEX};
 
 /// The notification Yapay POSTs into your server when a transaction is created.
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct YapayWebhook {
     pub token_transaction: String,
     pub transaction: WebhookTransaction,
 }
 
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct WebhookTransaction {
     pub order_number: String,
     pub free: String,
     pub transaction_id: String,
     pub status_name: String,
-    pub status_id: String,
+    pub status_id: TransactionStatus,
     pub date_transaction: String,
     pub split: String,
     pub price_payment: String,
