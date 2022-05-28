@@ -98,6 +98,26 @@ impl CheckoutPreferences {
         Ok(self)
     }
 
+    /// Sets the `url_process`, which will redirect the user after payment.
+    /// This is the standard way of redirecting, it doesn't matter if the transaction failed, or was
+    /// a success.
+    ///
+    ///
+    /// You can use this to trigger a response to your server that the user has finished a payment,
+    /// and now needs to wait for a definitive response.
+    pub fn set_process_url<U>(mut self, url: U) -> Result<Self, SDKError>
+    where
+        U: IntoUrl,
+    {
+        let res = url
+            .into_url()
+            .map(|a| a.as_str().to_string())
+            .map_err::<SDKError, _>(|e| InvalidError::URLError(e).into())?;
+
+        self.url_process = Some(res);
+        Ok(self)
+    }
+
     pub fn to_form(self, token: &str) -> String {
         let mut base_vec = vec![
             ("token_account", token.to_string()),
@@ -116,6 +136,10 @@ impl CheckoutPreferences {
 
         if let Some(payment_methods) = self.available_payment_methods {
             base_vec.push(("available_payment_methods", payment_methods));
+        }
+
+        if let Some(url) = self.url_process {
+            base_vec.push(("url_process", url));
         }
 
         let mut querystring = String::new();
