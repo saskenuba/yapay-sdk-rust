@@ -34,7 +34,7 @@ method.
 ```rust
 use yapay_sdk_rust::{YapaySDK, YapaySDKBuilder};
 
-let mp_sdk: YapaySDK = YapaySDKBuilder::with_token("YAPAY_ACCOUNT_TOKEN");
+let yapay_sdk: YapaySDK = YapaySDKBuilder::with_token(env!("YAPAY_ACCOUNT_TOKEN"));
 
 ```
 
@@ -51,12 +51,14 @@ use std::num::NonZeroU8;
 
 use uuid::Uuid;
 use yapay_sdk_rust::checkout::CheckoutPreferences;
-use yapay_sdk_rust::common_types::YapayProduct;
+use yapay_sdk_rust::common_types::{AsPaymentMethod, PaymentCreditCard, YapayProduct};
 use yapay_sdk_rust::{YapayEnv, YapaySDKBuilder};
 
 #[tokio::main]
 async fn async_main() {
-    let yapay_sdk = YapaySDKBuilder::with_token("YAPAY_ACCOUNT_TOKEN");
+    // your token, can come from environment or else
+    let yapay_token = "YAPAY_ACCOUNT_TOKEN";
+    let yapay_sdk = YapaySDKBuilder::with_token(yapay_token);
 
     let product = YapayProduct::new(
         "note-100sk".to_string(),
@@ -66,14 +68,16 @@ async fn async_main() {
     );
 
     let order_number = Uuid::new_v4().to_string();
-    let checkout_preferences =
-        CheckoutPreferences::new(order_number, vec![product]).set_notification_url();
+    let checkout_preferences = CheckoutPreferences::new(order_number, vec![product])
+        .expect("Validation failed.")
+        .set_notification_url("https://your-notifications-url.com")
+        .expect("Notifications URL failed to validate.")
+        .set_available_payment_methods(&PaymentCreditCard::payment_methods_all());
 
     let checkout_url = yapay_sdk
         .create_checkout_page(YapayEnv::PRODUCTION, checkout_preferences)
-        .expect("Failed to checkout options. Something is wrong.")
         .await
-        .unwrap();
+        .expect("Something went wrong creating the checkout.");
 }
 ```
 
