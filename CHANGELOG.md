@@ -5,42 +5,72 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## v0.2.0 (2022-05-28)
-
-### Documentation
-
- - <csr-id-6636633ec54386822205b3ce1135c4a1d14d5743/> updated README
-
- - <csr-id-b8bdaedef278163ffe4115d896d2c69e6f4b18c3/> updated docs/readme
-
+## v0.3.0 (2022-05-28)
 
 ### New Features
 
- - <csr-id-3d1ffe0e1f1e1cae75fe713a7909334f7bbe30fc/> Added `set_process_url` builder fn
+ - <csr-id-3daa7dffe991c1143b2e0b77e7bf49602438ab77/> implemented TryFrom<Vec<u8>> for `YapayWebhook` to allow it...
+   to be extracted from raw payloads.
 
- - <csr-id-abbb13b5acbe107767ca45b4abba3f2a7782e71c/> added TransactionStatus enum, and replaced it on webhook
+### Other
 
-
-### Bug Fixes
-
- - <csr-id-c0e57a7ea452bea6580e8e16169071c9504c8268/> clippy lints
+ - <csr-id-9e66ae0066fe1789d2f8b5a52a83996c0ccc4f4d/> removed unused deps and traits
 
 
-### New Features (BREAKING)
+### Chore (BREAKING)
 
- - <csr-id-08bb5f2bbbb497fc15b4a9ebdef69498a37db536/> docs, fixes +
-   * Added tests
-   * Updated some functions docs;
-   * Checkout can handle available_payment_methods correctly now;
-   * Renamed Webhook to YapayWebhook;
-   
-   BREAKING CHANGE
+ - <csr-id-c2f8fa7d808a09dbcba4f6cfe9878759ed930ea9/> removed pub visibilty to allow proper re-export of structs
+
 
 ### Commit Statistics
 
 <csr-read-only-do-not-edit/>
 
- - 6 commits contributed to the release over the course of 3 calendar days.
+ - 3 commits contributed to the release.
+ - 3 commits where understood as [conventional](https://www.conventionalcommits.org).
+ - 0 issues like '(#ID)' where seen in commit messages
+
+### Commit Details
+
+<csr-read-only-do-not-edit/>
+
+<details><summary>view details</summary>
+
+ * **Uncategorized**
+    - removed pub visibilty to allow proper re-export of structs ([`c2f8fa7`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/c2f8fa7d808a09dbcba4f6cfe9878759ed930ea9))
+    - implemented TryFrom<Vec<u8>> for `YapayWebhook` to allow it... ([`3daa7df`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/3daa7dffe991c1143b2e0b77e7bf49602438ab77))
+    - removed unused deps and traits ([`9e66ae0`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/9e66ae0066fe1789d2f8b5a52a83996c0ccc4f4d))
+</details>
+
+## v0.2.0 (2022-05-28)
+
+### Documentation
+
+ - <csr-id-6636633ec54386822205b3ce1135c4a1d14d5743/> updated README
+ - <csr-id-b8bdaedef278163ffe4115d896d2c69e6f4b18c3/> updated docs/readme
+
+### New Features
+
+ - <csr-id-3d1ffe0e1f1e1cae75fe713a7909334f7bbe30fc/> Added `set_process_url` builder fn
+ - <csr-id-abbb13b5acbe107767ca45b4abba3f2a7782e71c/> added TransactionStatus enum, and replaced it on webhook
+
+### Bug Fixes
+
+ - <csr-id-c0e57a7ea452bea6580e8e16169071c9504c8268/> clippy lints
+
+### New Features (BREAKING)
+
+ - <csr-id-08bb5f2bbbb497fc15b4a9ebdef69498a37db536/> docs, fixes +
+   * Added tests
+* Updated some functions docs;
+* Checkout can handle available_payment_methods correctly now;
+* Renamed Webhook to YapayWebhook;
+
+### Commit Statistics
+
+<csr-read-only-do-not-edit/>
+
+ - 7 commits contributed to the release over the course of 3 calendar days.
  - 3 days passed between releases.
  - 6 commits where understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' where seen in commit messages
@@ -52,6 +82,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <details><summary>view details</summary>
 
  * **Uncategorized**
+    - Release yapay-sdk-rust v0.2.0 ([`353a644`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/353a6440e47b857a7e60a2e178fa991f790423ad))
     - updated README ([`6636633`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/6636633ec54386822205b3ce1135c4a1d14d5743))
     - Added `set_process_url` builder fn ([`3d1ffe0`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/3d1ffe0e1f1e1cae75fe713a7909334f7bbe30fc))
     - added TransactionStatus enum, and replaced it on webhook ([`abbb13b`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/abbb13b5acbe107767ca45b4abba3f2a7782e71c))
@@ -59,6 +90,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - docs, fixes + ([`08bb5f2`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/08bb5f2bbbb497fc15b4a9ebdef69498a37db536))
     - updated docs/readme ([`b8bdaed`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/b8bdaedef278163ffe4115d896d2c69e6f4b18c3))
 </details>
+
+<csr-unknown>
+BREAKING CHANGE<csr-unknown/>
 
 ## v0.1.2 (2022-05-25)
 
