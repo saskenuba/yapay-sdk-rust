@@ -19,6 +19,17 @@ where
     serializer.serialize_str(&*value.stringify().unwrap())
 }
 
+pub fn format_available_payment_method<T>(methods_slice: &[T]) -> String
+where
+    T: std::fmt::Display,
+{
+    let mut start = format!("{}", methods_slice.first().unwrap());
+    for tipo in methods_slice.iter().skip(1) {
+        start.push_str(&*format!(",{}", tipo.to_string()));
+    }
+    start
+}
+
 pub fn validate_cpf(cpf: &str) -> Result<(), ValidationError> {
     let all_digits_repeated = [cpf.chars().nth(0).unwrap()]
         .repeat(11)

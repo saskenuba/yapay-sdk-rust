@@ -2,8 +2,18 @@ use reqwest::IntoUrl;
 use serde::Serialize;
 use validator::Validate;
 
+use crate::common_types::AsPaymentMethod;
+use crate::helpers::format_available_payment_method;
 use crate::{InvalidError, SDKError, YapayProduct};
 
+/// Preferences to create your checkout.
+///
+///
+/// [`notification_url`] is optional, but highly recommended way to receive payment updates.
+///
+///
+/// [`available_payment_methods`] is used to restrict payment options, and can be used with the
+/// `set_available_payment_methods` builder.
 #[derive(Validate, Default, Debug, Clone, PartialEq, Serialize)]
 pub struct CheckoutPreferences {
     order_number: String,
@@ -19,6 +29,9 @@ pub struct CheckoutPreferences {
 
     /// URL para onde deve notificado após mudanças no status de pagamento.
     notification_url: Option<String>,
+
+    ///
+    available_payment_methods: Option<String>,
 }
 
 impl CheckoutPreferences {
@@ -30,6 +43,7 @@ impl CheckoutPreferences {
             url_process: None,
             url_cancel: None,
             notification_url: None,
+            available_payment_methods: None,
         };
 
         if let Err(err) = builder.validate() {
@@ -37,6 +51,38 @@ impl CheckoutPreferences {
         }
 
         Ok(builder)
+    }
+
+    /// Restricts payment methods to those used on `methods` parameter.
+    ///
+    ///
+    /// # Usage
+    ///
+    /// ```
+    /// use std::num::NonZeroU8;
+    ///
+    /// use yapay_sdk_rust::checkout::CheckoutPreferences;
+    /// use yapay_sdk_rust::common_types::{AsPaymentMethod, PaymentCreditCard, YapayProduct};
+    ///
+    /// let product = YapayProduct::new(
+    ///     "sample".to_string(),
+    ///     "a sample product".to_string(),
+    ///     NonZeroU8(1).unwrap(),
+    ///     10_f64,
+    /// );
+    ///
+    /// let preferences = CheckoutPreferences::new("order_number".to_string(), vec![product])
+    ///     .unwrap()
+    ///     .set_available_payment_methods(&[PaymentCreditCard::payment_methods_all()]);
+    ///
+    /// // now you can only pay with credit cards
+    /// ```
+    pub fn set_available_payment_methods<PM>(mut self, methods: &[PM]) -> Self
+    where
+        PM: AsPaymentMethod,
+    {
+        self.available_payment_methods = Some(format_available_payment_method(methods));
+        self
     }
 
     pub fn set_notification_url<U>(mut self, url: U) -> Result<Self, SDKError>
@@ -66,6 +112,10 @@ impl CheckoutPreferences {
 
         if let Some(url) = self.notification_url {
             base_vec.push(("notification_url", url));
+        }
+
+        if let Some(payment_methods) = self.available_payment_methods {
+            base_vec.push(("available_payment_methods", payment_methods));
         }
 
         let mut querystring = String::new();

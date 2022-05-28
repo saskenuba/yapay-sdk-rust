@@ -1,7 +1,7 @@
 use futures::TryFutureExt;
 use uuid::Uuid;
 use yapay_sdk_rust::checkout::CheckoutPreferences;
-use yapay_sdk_rust::common_types::{CreditCard, YapayCardData, YapayTransaction};
+use yapay_sdk_rust::common_types::{PaymentCreditCard, YapayCardData, YapayTransaction};
 use yapay_sdk_rust::YapayEnv;
 
 mod common;
@@ -12,7 +12,7 @@ async fn cc_payment() {
 
     let customer = common::valid_customer();
     let card_data = YapayCardData::new(
-        CreditCard::MasterCard,
+        PaymentCreditCard::MasterCard,
         "Joaquim Silva".to_string(),
         "3456 8564 1548 7894".to_string(),
         "06".to_string(),
@@ -27,7 +27,7 @@ async fn cc_payment() {
     let transaction = YapayTransaction::online_goods(
         Uuid::new_v4().to_string()[..20].to_string(),
         "127.0.0.1".to_string(),
-        Some(CreditCard::to_payment_methods()),
+        Some(PaymentCreditCard::payment_methods_all()),
         Some("https://webhook.site/966172d0-ed8f-497f-afcf-eec1727a628b"),
     )
     .unwrap();

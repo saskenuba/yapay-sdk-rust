@@ -4,8 +4,9 @@ use serde::{Deserialize, Serialize};
 
 use crate::common_types::CLEAN_WEBHOOK_REGEX;
 
+/// The notification Yapay POSTs into your server when a transaction is created.
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-pub struct WebhookRoot {
+pub struct YapayWebhook {
     pub token_transaction: String,
     pub transaction: WebhookTransaction,
 }
@@ -145,7 +146,7 @@ mod tests {
     fn t_notification() {
         let cfg = Config::new(10, false);
         let result = cfg
-            .deserialize_str::<WebhookRoot>(&*clean_non_indexed(post_not_cleaned()))
+            .deserialize_str::<YapayWebhook>(&*clean_non_indexed(post_not_cleaned()))
             .unwrap();
 
         eprintln!("result = {:#?}", result);

@@ -1,4 +1,5 @@
 use std::borrow::Cow;
+use std::fmt::Display;
 use std::num::NonZeroU8;
 
 use lazy_static::lazy_static;
@@ -10,6 +11,7 @@ use time::{Date, OffsetDateTime};
 use validator::Validate;
 
 use crate::errors::InvalidError;
+use crate::helpers::format_available_payment_method;
 use crate::{CanValidate, SDKError};
 
 lazy_static! {
@@ -216,7 +218,7 @@ pub struct YapayCardData {
     /// Veja mais sobre em:
     /// [Yapay Fingerprint](https://intermediador.dev.yapay.com.br/#/transacao-fingerprint)
     pub finger_print: String,
-    pub payment_method_id: CreditCard,
+    pub payment_method_id: PaymentCreditCard,
     pub card_name: String,
     pub card_number: String,
 
@@ -236,7 +238,7 @@ pub struct YapayCardData {
 
 impl YapayCardData {
     pub fn new(
-        cc: CreditCard,
+        cc: PaymentCreditCard,
         cc_owner_name: String,
         cc_number: String,
         cc_exp_mm: String,
@@ -325,20 +327,30 @@ pub enum PhoneContactType {
 /// Tabela de Contact
 #[derive(Copy, Clone, Deserialize, Serialize, PartialEq, Debug)]
 pub enum PaymentType {
-    Card(CreditCard),
-    BankTransfer(BankTransfer),
-}
-
-#[derive(Copy, Clone, Deserialize, Serialize, PartialEq, Debug)]
-pub enum BankTransfer {
-    #[serde(rename = "7")]
-    ItauShopline,
-    #[serde(rename = "23")]
-    BancoDoBrasil,
+    Card(PaymentCreditCard),
+    BankTransfer(PaymentOtherMethods),
 }
 
 #[derive(strum::Display, EnumIter, Copy, Clone, Deserialize, Serialize, PartialEq, Debug)]
-pub enum CreditCard {
+pub enum PaymentOtherMethods {
+    #[serde(rename = "6")]
+    #[strum(serialize = "6")]
+    Boleto,
+    #[serde(rename = "27")]
+    #[strum(serialize = "27")]
+    PIX,
+    /// Transferência online Itaú Shopline
+    #[serde(rename = "7")]
+    #[strum(serialize = "7")]
+    BankTransferItauShopline,
+    /// Transferência online Banco do Brasil
+    #[serde(rename = "23")]
+    #[strum(serialize = "23")]
+    BankTransferBB,
+}
+
+#[derive(strum::Display, EnumIter, Copy, Clone, Deserialize, Serialize, PartialEq, Debug)]
+pub enum PaymentCreditCard {
     #[serde(rename = "3")]
     #[strum(serialize = "3")]
     Visa,
@@ -359,15 +371,14 @@ pub enum CreditCard {
     HiperItau,
 }
 
-impl CreditCard {
-    pub fn to_payment_methods() -> String {
-        Self::iter()
-            .skip(1)
-            .fold(format!("{}", Self::Visa), |acc, x| {
-                acc + &*format!(",{}", x)
-            })
+/// Methods that takes this trait, you should pass either `OtherMethods` or `CreditCard`.
+pub trait AsPaymentMethod: Display + IntoEnumIterator {
+    fn payment_methods_all() -> String {
+        format_available_payment_method(&<Self as IntoEnumIterator>::iter().collect::<Vec<_>>())
     }
 }
+impl AsPaymentMethod for PaymentOtherMethods {}
+impl AsPaymentMethod for PaymentCreditCard {}
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Card {
@@ -403,7 +414,10 @@ mod tests {
     use time::macros::format_description;
     use time::Date;
 
-    use crate::common_types::{validate_card_expiration, CreditCard};
+    use crate::common_types::{
+        validate_card_expiration, AsPaymentMethod, PaymentCreditCard, PaymentOtherMethods,
+    };
+    use crate::helpers::format_available_payment_method;
 
     #[test]
     fn cc_valid_date() {
@@ -425,7 +439,16 @@ mod tests {
 
     #[test]
     fn t_cc_methods() {
-        let res = CreditCard::to_payment_methods();
+        let res = PaymentCreditCard::payment_methods_all();
         assert_eq!(res, "3,4,5,16,20,25".to_string());
+    }
+
+    #[test]
+    fn t_specific_methods() {
+        let res = format_available_payment_method(&[
+            PaymentOtherMethods::Boleto,
+            PaymentOtherMethods::BankTransferBB,
+        ]);
+        assert_eq!(res, "6,23".to_string());
     }
 }

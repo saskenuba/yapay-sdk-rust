@@ -36,7 +36,7 @@ pub fn valid_customer() -> YapayCustomer {
 
 pub fn valid_product() -> YapayProduct {
     YapayProduct::new(
-        "100brl".to_string(),
+        "wallet-100-brl".to_string(),
         "100 reais de crédito na carteira MercadoSkin.".to_string(),
         NonZeroU8::new(1).unwrap(),
         100_f64,
