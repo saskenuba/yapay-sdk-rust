@@ -11,6 +11,7 @@ impl Stringify for Option<i64> {
     }
 }
 
+#[allow(dead_code)]
 pub fn option_stringify<T, S>(value: &T, serializer: S) -> Result<S::Ok, S::Error>
 where
     T: Stringify,
