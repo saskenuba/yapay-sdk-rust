@@ -239,7 +239,6 @@ impl<'a, RP> SDKJsonRequest<'a, RP> {
     }
 }
 
-// pub type WebhookResponse = ResponseRoot<TransactionResponseWrapper<Webhook>>;
 pub type CardTransactionResponse = ResponseRoot<TransactionResponseWrapper<TransactionResponse>>;
 pub type SimulationResponse = ResponseRoot<SimulationResponseWrapper<PaymentTaxResponse>>;
 

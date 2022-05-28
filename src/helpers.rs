@@ -25,13 +25,13 @@ where
 {
     let mut start = format!("{}", methods_slice.first().unwrap());
     for tipo in methods_slice.iter().skip(1) {
-        start.push_str(&*format!(",{}", tipo.to_string()));
+        start.push_str(&*format!(",{}", tipo));
     }
     start
 }
 
 pub fn validate_cpf(cpf: &str) -> Result<(), ValidationError> {
-    let all_digits_repeated = [cpf.chars().nth(0).unwrap()]
+    let all_digits_repeated = [cpf.chars().next().unwrap()]
         .repeat(11)
         .into_iter()
         .collect::<String>();
