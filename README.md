@@ -50,9 +50,9 @@ You can easily retrieve a checkout link with the method below.
 use std::num::NonZeroU8;
 
 use uuid::Uuid;
-use yapay_sdk_rust::checkout::CheckoutPreferences;
-use yapay_sdk_rust::common_types::{AsPaymentMethod, PaymentCreditCard, YapayProduct};
-use yapay_sdk_rust::{YapayEnv, YapaySDKBuilder};
+use yapay_sdk_rust::{
+    CheckoutPreferences, PaymentCreditCard, YapayEnv, YapayProduct, YapaySDKBuilder,
+};
 
 #[tokio::main]
 async fn async_main() {

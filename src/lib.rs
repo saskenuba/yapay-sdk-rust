@@ -42,9 +42,9 @@
 //! use std::num::NonZeroU8;
 //!
 //! use uuid::Uuid;
-//! use yapay_sdk_rust::checkout::CheckoutPreferences;
-//! use yapay_sdk_rust::common_types::{AsPaymentMethod, PaymentCreditCard, YapayProduct};
-//! use yapay_sdk_rust::{YapayEnv, YapaySDKBuilder};
+//! use yapay_sdk_rust::{
+//!     CheckoutPreferences, PaymentCreditCard, YapayEnv, YapayProduct, YapaySDKBuilder,
+//! };
 //!
 //! #[tokio::main]
 //! async fn async_main() {
@@ -80,17 +80,22 @@
 //! # License
 //! Project is licensed under the permissive MIT license.
 
-pub mod checkout;
-pub mod common_types;
+mod checkout;
+mod common_types;
 pub mod errors;
-pub mod helpers;
-pub mod simulation;
-pub mod transaction;
-pub mod webhooks;
+mod helpers;
+mod simulation;
+mod transaction;
+mod webhooks;
 
 use std::marker::PhantomData;
 
+pub use checkout::CheckoutPreferences;
 use common_types::ResponseRoot;
+pub use common_types::{
+    PaymentCreditCard, PaymentOtherMethods, YapayCardData, YapayCustomer, YapayProduct,
+    YapayTransaction,
+};
 use futures::TryFutureExt;
 use reqwest::header::{CONTENT_TYPE, LOCATION};
 use reqwest::redirect::Policy;
@@ -98,9 +103,8 @@ use reqwest::{Client, Method};
 use serde::de::DeserializeOwned;
 use serde::Serialize;
 use validator::Validate;
+pub use webhooks::YapayWebhook;
 
-use crate::checkout::CheckoutPreferences;
-use crate::common_types::{YapayCardData, YapayCustomer, YapayProduct, YapayTransaction};
 use crate::errors::{ApiError, InvalidError, SDKError};
 use crate::simulation::{PaymentTaxResponse, SimulatePayload, SimulationResponseWrapper};
 use crate::transaction::creditcard::TransactionResponse;
