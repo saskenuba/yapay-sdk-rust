@@ -5,7 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.3.1 (2022-05-29)
+
+### Refactor
+
+ - <csr-id-bea195316e37402674108bf2c7b95101d7c07662/> removed print calls that were panicking on multi-thread..
+   executors, and replaced with tracing dep
+
+### Commit Statistics
+
+<csr-read-only-do-not-edit/>
+
+ - 1 commit contributed to the release.
+ - 1 commit where understood as [conventional](https://www.conventionalcommits.org).
+ - 0 issues like '(#ID)' where seen in commit messages
+
+### Commit Details
+
+<csr-read-only-do-not-edit/>
+
+<details><summary>view details</summary>
+
+ * **Uncategorized**
+    - removed print calls that were panicking on multi-thread.. ([`bea1953`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/bea195316e37402674108bf2c7b95101d7c07662))
+</details>
+
 ## v0.3.0 (2022-05-28)
+
+<csr-id-9e66ae0066fe1789d2f8b5a52a83996c0ccc4f4d/>
+<csr-id-c2f8fa7d808a09dbcba4f6cfe9878759ed930ea9/>
 
 ### New Features
 
@@ -26,7 +54,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 3 commits contributed to the release.
+ - 4 commits contributed to the release.
  - 3 commits where understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' where seen in commit messages
 
@@ -37,6 +65,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <details><summary>view details</summary>
 
  * **Uncategorized**
+    - Release yapay-sdk-rust v0.3.0 ([`5d75b68`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/5d75b6810d1d0d6c9369179bfeb12acbd7017205))
     - removed pub visibilty to allow proper re-export of structs ([`c2f8fa7`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/c2f8fa7d808a09dbcba4f6cfe9878759ed930ea9))
     - implemented TryFrom<Vec<u8>> for `YapayWebhook` to allow it... ([`3daa7df`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/3daa7dffe991c1143b2e0b77e7bf49602438ab77))
     - removed unused deps and traits ([`9e66ae0`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/9e66ae0066fe1789d2f8b5a52a83996c0ccc4f4d))
@@ -90,9 +119,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - docs, fixes + ([`08bb5f2`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/08bb5f2bbbb497fc15b4a9ebdef69498a37db536))
     - updated docs/readme ([`b8bdaed`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/b8bdaedef278163ffe4115d896d2c69e6f4b18c3))
 </details>
-
-<csr-unknown>
-BREAKING CHANGE<csr-unknown/>
 
 ## v0.1.2 (2022-05-25)
 
