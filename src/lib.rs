@@ -198,7 +198,7 @@ impl<'a, RP> SDKJsonRequest<'a, RP> {
         RP: DeserializeOwned + Send,
     {
         let api_endpoint = format!("{}{}", yapay_env.api_link(), self.endpoint);
-        println!("api endpoint: {:?}", api_endpoint);
+        tracing::trace!("api endpoint: {:?}", api_endpoint);
 
         let request = self
             .http_client
@@ -207,19 +207,19 @@ impl<'a, RP> SDKJsonRequest<'a, RP> {
             .header(CONTENT_TYPE, "application/json")
             .build()
             .unwrap();
-        eprintln!("request = {:#?}", request);
+        tracing::trace!("request = {:#?}", request);
 
         let response = self
             .http_client
             .execute(request)
             .and_then(|c| c.text())
             .await?;
-        eprintln!("response = {}", response);
+        tracing::trace!("response = {}", response);
 
         // matches errors due to wrong payloads etc
         let error_jd = serde_json::from_str::<ApiError>(&*response);
         if let Ok(err) = error_jd {
-            eprintln!("err = {:#?}", err);
+            tracing::error!("err = {:#?}", err);
             return Err(SDKError::PayloadError(err));
         }
 
@@ -229,8 +229,8 @@ impl<'a, RP> SDKJsonRequest<'a, RP> {
         match res {
             Ok(deserialized_resp) => Ok(deserialized_resp),
             Err(err) => {
-                println!("{:?}", err.path());
-                eprintln!("Error = {:#?}", err);
+                tracing::error!("{:?}", err.path());
+                tracing::error!("Error = {:#?}", err);
                 Err(SDKError::GenericError)
             }
         }
@@ -286,10 +286,6 @@ impl YapaySDK {
         }
 
         let payload = serde_json::to_string(&request_payload).expect("Safe to unwrap.");
-        eprintln!(
-            "payload = {}",
-            serde_json::to_string_pretty(&request_payload).unwrap()
-        );
 
         Ok(SDKJsonRequest::from_sdk(
             self,
@@ -303,11 +299,6 @@ impl YapaySDK {
     pub fn simulate_payment(&self, total_amount: f64) -> SDKJsonRequest<SimulationResponse> {
         let request_payload = SimulatePayload::new(self.account_token.clone(), total_amount);
         let payload = serde_json::to_string(&request_payload).unwrap();
-
-        eprintln!(
-            "payload = {}",
-            serde_json::to_string_pretty(&request_payload).unwrap()
-        );
 
         SDKJsonRequest::from_sdk(
             self,
