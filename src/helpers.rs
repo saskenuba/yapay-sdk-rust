@@ -1,3 +1,6 @@
+use std::borrow::Cow;
+use std::collections::HashMap;
+
 use serde::Serializer;
 use validator::ValidationError;
 
@@ -39,9 +42,9 @@ pub fn validate_cpf(cpf: &str) -> Result<(), ValidationError> {
 
     if cpf.len() != 11 || cpf == &*all_digits_repeated {
         let error = ValidationError {
-            code: Default::default(),
+            code: Cow::default(),
             message: None,
-            params: Default::default(),
+            params: HashMap::default(),
         };
         return Err(error);
     };
@@ -62,9 +65,9 @@ pub fn validate_cpf(cpf: &str) -> Result<(), ValidationError> {
 
     if first_sum * 10 % 11 != first_validator || second_sum * 10 % 11 != second_validator {
         let error = ValidationError {
-            code: Default::default(),
+            code: Cow::default(),
             message: None,
-            params: Default::default(),
+            params: HashMap::default(),
         };
 
         return Err(error);

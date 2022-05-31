@@ -14,10 +14,7 @@ pub struct SimulatePayload {
 }
 
 impl SimulatePayload {
-    pub fn new<T>(token_account: String, total_amount: T) -> SimulatePayload
-    where
-        T: ToString,
-    {
+    pub fn new(token_account: String, total_amount: f64) -> Self {
         Self {
             token_account,
             price: total_amount.to_string(),

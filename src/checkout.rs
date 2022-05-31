@@ -77,6 +77,7 @@ impl CheckoutPreferences {
     ///
     /// // now you can only pay with credit cards
     /// ```
+    #[must_use]
     pub fn set_available_payment_methods<PM>(mut self, methods: &[PM]) -> Self
     where
         PM: AsPaymentMethod,
@@ -118,6 +119,7 @@ impl CheckoutPreferences {
         Ok(self)
     }
 
+    #[must_use]
     pub fn to_form(self, token: &str) -> String {
         let mut base_vec = vec![
             ("token_account", token.to_string()),

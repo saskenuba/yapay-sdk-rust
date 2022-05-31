@@ -1,4 +1,5 @@
 use std::borrow::Cow;
+use std::collections::HashMap;
 use std::fmt::Display;
 use std::num::NonZeroU8;
 
@@ -187,9 +188,11 @@ impl YapayTransaction {
         available_payment_methods: Option<String>,
         notification_url: Option<&str>,
     ) -> Result<Self, SDKError> {
+        let methods = available_payment_methods
+            .unwrap_or_else(|| "2,3,4,5,6,7,14,15,16,18,19,21,22,23".to_string());
+
         let transaction = Self {
-            available_payment_methods: available_payment_methods
-                .unwrap_or("2,3,4,5,6,7,14,15,16,18,19,21,22,23".to_string()),
+            available_payment_methods: methods,
             order_number: Some(order_number),
             customer_ip,
             shipping_type: None,
@@ -304,7 +307,7 @@ pub fn validate_card_exp(card_data: &YapayCardData) -> Result<(), validator::Val
         Err(err) => Err(validator::ValidationError {
             code: Cow::from("exp_month and exp_year"),
             message: Some(Cow::from(err.to_string())),
-            params: Default::default(),
+            params: HashMap::default(),
         }),
     }
 }

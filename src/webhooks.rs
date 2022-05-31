@@ -1,4 +1,6 @@
-//! YapayWebhook is the one you'll want to deserialize the POST requests yapay send to your server.
+//! `YapayWebhook` is the one you'll want to deserialize the POST requests yapay send to your
+//! server.
+//!
 //! Don't forget to return http 200.
 //!
 //!

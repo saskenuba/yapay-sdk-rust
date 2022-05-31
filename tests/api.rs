@@ -1,8 +1,9 @@
 use futures::TryFutureExt;
 use uuid::Uuid;
-use yapay_sdk_rust::checkout::CheckoutPreferences;
-use yapay_sdk_rust::common_types::{PaymentCreditCard, YapayCardData, YapayTransaction};
-use yapay_sdk_rust::YapayEnv;
+use yapay_sdk_rust::{
+    AsPaymentMethod, CheckoutPreferences, PaymentCreditCard, YapayCardData, YapayEnv,
+    YapayTransaction,
+};
 
 mod common;
 

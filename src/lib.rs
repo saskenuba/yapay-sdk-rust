@@ -80,6 +80,24 @@
 //! # License
 //! Project is licensed under the permissive MIT license.
 
+#![allow(
+    clippy::missing_const_for_fn,
+    clippy::missing_errors_doc,
+    clippy::missing_panics_doc,
+    clippy::must_use_candidate,
+    clippy::non_ascii_literal,
+    clippy::redundant_closure,
+    clippy::use_self,
+    clippy::used_underscore_binding
+)]
+#![warn(missing_debug_implementations, missing_copy_implementations)]
+#![deny(
+    trivial_casts,
+    trivial_numeric_casts,
+    unused_import_braces,
+    unused_qualifications
+)]
+
 mod checkout;
 mod common_types;
 pub mod errors;
@@ -93,7 +111,8 @@ use std::marker::PhantomData;
 pub use checkout::CheckoutPreferences;
 use common_types::ResponseRoot;
 pub use common_types::{
-    PaymentCreditCard, PaymentOtherMethods, YapayCardData, YapayCustomer, YapayProduct,
+    AddressType, AsPaymentMethod, CustomerAddress, CustomerPhoneContact, PaymentCreditCard,
+    PaymentOtherMethods, PhoneContactType, YapayCardData, YapayCustomer, YapayProduct,
     YapayTransaction, YapayTransactionStatus,
 };
 use futures::TryFutureExt;
@@ -119,7 +138,7 @@ const CHECKOUT_TEST_BASE: &str =
 
 pub trait CanValidate: Serialize + Validate {}
 
-#[derive(Debug, Eq, PartialEq)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 pub enum YapayEnv {
     PRODUCTION,
     SANDBOX,
@@ -142,7 +161,7 @@ impl YapayEnv {
 }
 
 ///
-#[derive(Debug)]
+#[derive(Copy, Clone, Debug)]
 pub struct YapaySDKBuilder {}
 
 impl YapaySDKBuilder {
@@ -170,6 +189,7 @@ pub struct YapaySDK {
     pub(crate) account_token: String,
 }
 
+#[derive(Debug)]
 pub struct SDKJsonRequest<'a, RP> {
     http_client: &'a Client,
     method: Method,
@@ -212,7 +232,7 @@ impl<'a, RP> SDKJsonRequest<'a, RP> {
         let response = self
             .http_client
             .execute(request)
-            .and_then(|c| c.text())
+            .and_then(reqwest::Response::text)
             .await?;
         tracing::trace!("response = {}", response);
 

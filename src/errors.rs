@@ -19,7 +19,7 @@ pub enum SDKError {
     GenericError,
 }
 
-#[derive(Error, Debug)]
+#[derive(Error, Clone, Copy, Debug)]
 pub enum CreditCardError {
     #[error("Card has expired.")]
     Expired,
