@@ -5,7 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.3.3 (2022-05-31)
+
+### Refactor
+
+ - <csr-id-21d751ffdc75d1552a78d455ce81294fc2fc9811/> clippy lints, re-export of other missing Customer structs
+
+
+### Commit Statistics
+
+<csr-read-only-do-not-edit/>
+
+ - 1 commit contributed to the release.
+ - 1 commit where understood as [conventional](https://www.conventionalcommits.org).
+ - 0 issues like '(#ID)' where seen in commit messages
+
+### Commit Details
+
+<csr-read-only-do-not-edit/>
+
+<details><summary>view details</summary>
+
+ * **Uncategorized**
+    - clippy lints, re-export of other missing Customer structs ([`21d751f`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/21d751ffdc75d1552a78d455ce81294fc2fc9811))
+</details>
+
 ## v0.3.2 (2022-05-31)
+
+<csr-id-a90f86f702a16981fb992e263b8acdd78becd235/>
 
 ### Refactor
 
@@ -16,7 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 1 commit contributed to the release.
+ - 2 commits contributed to the release.
  - 1 day passed between releases.
  - 1 commit where understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' where seen in commit messages
@@ -28,6 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <details><summary>view details</summary>
 
  * **Uncategorized**
+    - Release yapay-sdk-rust v0.3.2 ([`fa5fa6b`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/fa5fa6b3db98bca78fda6bc2a62d8c4f47ff9df5))
     - TransactionStatus -> YapayTransactionStatus, add re-export ([`a90f86f`](https://github.comgit//saskenuba/yapay-sdk-rust/commit/a90f86f702a16981fb992e263b8acdd78becd235))
 </details>
 
