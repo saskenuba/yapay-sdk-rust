@@ -20,9 +20,11 @@ lazy_static! {
         Regex::new(r"\&transaction\[products\]\[\].*?\&").unwrap();
 }
 
-/// Transaction Status
+/// Enum containing the current transactions status.
+///
+/// Generally you will match this when receiving webhooks from Yapay.
 #[derive(Copy, Clone, Deserialize, Serialize, PartialEq, Debug, strum::Display)]
-pub enum TransactionStatus {
+pub enum YapayTransactionStatus {
     #[serde(rename = "4")]
     AguardandoPagamento,
     #[serde(rename = "6")]

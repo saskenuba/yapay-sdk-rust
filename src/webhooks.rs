@@ -9,7 +9,7 @@
 use serde::{Deserialize, Serialize};
 use serde_qs::Config;
 
-use crate::common_types::{TransactionStatus, CLEAN_WEBHOOK_REGEX};
+use crate::common_types::{YapayTransactionStatus, CLEAN_WEBHOOK_REGEX};
 
 /// The notification Yapay POSTs into your server when a transaction is created.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -36,7 +36,7 @@ pub struct WebhookTransaction {
     pub free: String,
     pub transaction_id: String,
     pub status_name: String,
-    pub status_id: TransactionStatus,
+    pub status_id: YapayTransactionStatus,
     pub date_transaction: String,
     pub split: String,
     pub price_payment: String,

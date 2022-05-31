@@ -94,7 +94,7 @@ pub use checkout::CheckoutPreferences;
 use common_types::ResponseRoot;
 pub use common_types::{
     PaymentCreditCard, PaymentOtherMethods, YapayCardData, YapayCustomer, YapayProduct,
-    YapayTransaction,
+    YapayTransaction, YapayTransactionStatus,
 };
 use futures::TryFutureExt;
 use reqwest::header::{CONTENT_TYPE, LOCATION};
